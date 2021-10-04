@@ -1,5 +1,5 @@
 import { Vector2, Vector3 } from './Vector';
-import { Triangle, Polygon, SimplePolygonBuilder } from './Polygon';
+import { Triangle, Polygon } from './Polygon';
 
 export class Renderer {
   private camera: Camera;
@@ -78,7 +78,7 @@ export class Camera {
 
   constructor(private screenSize: Vector2) {
     this.magnification = this.screenSize.length() / this.fov;
-    this.location = new Vector3(300, 0, 0);
+    this.location = new Vector3(5, 0, 0);
     this.normal = new Vector3(-1, 0, 0);
   }
 

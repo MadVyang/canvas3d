@@ -1,4 +1,5 @@
-import { Vector2, Vector3 } from './Vector';
+import { Vector3 } from './Vector';
+import { ModelData } from '../data/teapot';
 
 export class Triangle {
   private rotation: Vector3;
@@ -89,7 +90,33 @@ export class PolygonBuilder {
     return new Polygon(triangles);
   }
 
-  static createPolygonFrom(data: string): Polygon {
-    return this.createPyramid(10, 100, 100);
+  static createPolygonFrom(data: ModelData): Polygon {
+    let points: Array<Vector3> = [];
+    let triangles: Array<Triangle> = [];
+    for (let point of data.points) {
+      points.push(new Vector3(point[0], point[1], point[2]));
+    }
+    for (let triangle of data.triangles) {
+      if (!points[triangle[0]]) {
+        console.log(points[triangle[0]], triangle[0]);
+        continue;
+      }
+      if (!points[triangle[1]]) {
+        console.log(points[triangle[1]], triangle[1]);
+        continue;
+      }
+      if (!points[triangle[2]]) {
+        console.log(points[triangle[2]], triangle[2]);
+        continue;
+      }
+      triangles.push(
+        new Triangle(
+          points[triangle[0]],
+          points[triangle[1]],
+          points[triangle[2]]
+        )
+      );
+    }
+    return new Polygon(triangles);
   }
 }
