@@ -51,7 +51,7 @@ export class Polygon {
   }
 }
 
-export class SimplePolygonBuilder {
+export class PolygonBuilder {
   static createPyramid(n: number, radius: number, height: number): Polygon {
     let triangles: Array<Triangle> = new Array<Triangle>();
     for (let i = 0; i < n; i++) {
@@ -87,5 +87,9 @@ export class SimplePolygonBuilder {
       triangles.push(base, side);
     }
     return new Polygon(triangles);
+  }
+
+  static createPolygonFrom(data: string): Polygon {
+    return this.createPyramid(10, 100, 100);
   }
 }

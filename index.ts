@@ -1,4 +1,4 @@
-import { Polygon, SimplePolygonBuilder } from './classes/Polygon';
+import { Polygon, PolygonBuilder } from './classes/Polygon';
 import { Renderer } from './classes/Renderer';
 import { Controller } from './classes/Controller';
 
@@ -8,7 +8,7 @@ let context = canvas.getContext('2d');
 let renderer: Renderer = new Renderer(canvas, context);
 let controller: Controller = new Controller();
 
-let pyramid: Polygon = SimplePolygonBuilder.createPyramid(10, 100, 200);
+let pyramid: Polygon = PolygonBuilder.createPyramid(10, 100, 200);
 
 function tick() {
   // move cam
