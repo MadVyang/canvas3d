@@ -23,7 +23,7 @@ export class Renderer {
     for (let triangle of polygon.getTriangles()) {
       trianglesWithDepth.push([
         triangle,
-        triangle.getP1().x + triangle.getP2().x + triangle.getP3().x,
+        Math.min(triangle.getP1().x, triangle.getP2().x, triangle.getP3().x),
       ]);
     }
     trianglesWithDepth.sort((a, b) => a[1] - b[1]);
@@ -73,12 +73,10 @@ export class Camera {
   public location: Vector3;
 
   private fov: number = Math.PI / 3;
-  private magnification: number;
   private normal: Vector3;
 
   constructor(private screenSize: Vector2) {
-    this.magnification = this.screenSize.length() / this.fov;
-    this.location = new Vector3(5, 0, 0);
+    this.location = new Vector3(7, 0, 0);
     this.normal = new Vector3(-1, 0, 0);
   }
 

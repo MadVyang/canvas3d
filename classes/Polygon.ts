@@ -94,29 +94,19 @@ export class PolygonBuilder {
     let points: Array<Vector3> = [];
     let triangles: Array<Triangle> = [];
     for (let point of data.points) {
-      points.push(new Vector3(point[0], point[1], point[2]));
+      points.push(new Vector3(point[0], point[1] - 1, point[2]));
     }
     for (let triangle of data.triangles) {
-      if (!points[triangle[0]]) {
-        console.log(points[triangle[0]], triangle[0]);
-        continue;
-      }
-      if (!points[triangle[1]]) {
-        console.log(points[triangle[1]], triangle[1]);
-        continue;
-      }
-      if (!points[triangle[2]]) {
-        console.log(points[triangle[2]], triangle[2]);
-        continue;
-      }
       triangles.push(
         new Triangle(
-          points[triangle[0]],
-          points[triangle[1]],
-          points[triangle[2]]
+          points[triangle[0] - 1],
+          points[triangle[1] - 1],
+          points[triangle[2] - 1]
         )
       );
     }
-    return new Polygon(triangles);
+    let teapot = new Polygon(triangles);
+    teapot.setRotation(new Vector3(Math.PI / 2, 0, 0));
+    return teapot;
   }
 }
