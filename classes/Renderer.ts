@@ -48,7 +48,11 @@ export class Renderer {
     this.context.fillStyle = `rgb(${255 * brightness}, ${255 * brightness}, ${
       255 * brightness
     })`;
+    this.context.strokeStyle = `rgb(${255 * brightness}, ${255 * brightness}, ${
+      255 * brightness
+    })`;
     this.context.fill();
+    this.context.stroke();
   }
 
   private moveTo(point: Vector2): void {
