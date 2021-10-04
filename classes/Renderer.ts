@@ -76,7 +76,7 @@ export class Camera {
   private normal: Vector3;
 
   constructor(private screenSize: Vector2) {
-    this.location = new Vector3(7, 0, 0);
+    this.location = new Vector3(6, 0, 0);
     this.normal = new Vector3(-1, 0, 0);
   }
 

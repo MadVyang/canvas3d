@@ -2,7 +2,6 @@ import { Polygon, PolygonBuilder } from './classes/Polygon';
 import { Renderer } from './classes/Renderer';
 import { Controller } from './classes/Controller';
 import { teapotData } from './data/teapot';
-import { Vector3 } from './classes/Vector';
 
 let canvas: HTMLCanvasElement = document.querySelector('#canvas');
 let context = canvas.getContext('2d');
@@ -25,8 +24,10 @@ function tick() {
   let rotateSpd: number = Math.PI * 0.02;
   modelRotationTarget.x += rotateSpd;
   modelRotationTarget.y += rotateSpd;
+  modelRotationTarget.z += rotateSpd;
   modelRotation.x += (modelRotationTarget.x - modelRotation.x) * 0.1;
   modelRotation.y += (modelRotationTarget.y - modelRotation.y) * 0.1;
+  modelRotation.z += (modelRotationTarget.z - modelRotation.z) * 0.1;
   teapot.setRotation(modelRotation);
 
   // render
