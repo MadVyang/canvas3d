@@ -1,3 +1,3 @@
 # canvas3d
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/canvas3d)
+[View on StackBlitz ⚡️](https://canvas3d.stackblitz.io/)
